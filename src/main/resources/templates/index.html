@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:insert="header.html :: link">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="header :: header"></header>
+<nav th:replace="header :: nav"></nav>
+<main>
+
+<h1>Tasks</h1>
+<div th:include="header ::scripts"></div>
+</main>
+</body>
+</html>

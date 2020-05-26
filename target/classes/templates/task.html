@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:insert="header.html :: link">
+    <title th:text="#{taskdetail}"></title>
+</head>
+<body>
+<header th:replace="header :: header"></header>
+<nav th:replace="header :: nav"></nav>
+<main>
+<h1>Task</h1>
+<p th:if="${task == null}" th:text="#{notask}"></p>
+<table th:if="${task !=null}">
+    <tr>
+        <td th:text="#{taskName}" width="150"></td>
+        <td th:text="${task.taskName}">
+    </tr>
+    <tr>
+        <td th:text="#{taskDescription}"></td>
+        <td th:text="${task.taskDescription}">
+    </tr>
+    <tr>
+        <td th:text="#{taskDue}"></td>
+        <td th:text="${#temporals.format(task.taskDue, 'dd-MM-yyyy HH:mm')}">
+    </tr>
+
+</table>
+
+<div th:if="${not #lists.isEmpty(subtasks)}">
+    <h1 th:text="#{Subtasks}"></h1>
+    <table>
+        <tr th:each="subtask : ${subtasks}">
+            <td th:text="${subtask}"></td>
+        </tr>
+    </table>
+</div>
+    <p th:if="${task != null}"><a th:href="@{/tasks/{id}/sub/create(id=${task.id})}" th:text="#{createSubtask}"></a></p>
+<div th:include="header ::scripts"></div>
+</main>
+</body>
+</html>

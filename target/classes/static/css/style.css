@@ -1,0 +1,141 @@
+html{
+    height: 100vh;
+    font-family: "PT Sans", Helvetica, sans-serif;
+}
+* {
+    box-sizing: border-box;
+    padding:0;
+}
+
+body{
+    display:grid;
+    grid-gap: 0 0;
+    grid-template-rows: 316px 56px auto;
+    grid-template-columns: auto 1045px auto;
+    background-color: #2b2b30;
+    height:100%;
+    line-height: 1.5em;
+}
+header{
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    justify-self: start;
+    min-width: 100%;
+    padding:10px;
+    background-color: #e1e2da;
+}
+nav{
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    min-width: 100%;
+    border-top: none;
+    display: flex;
+    align-items: stretch;
+    background-color: #e1e2da;
+    padding:0 10px;
+}
+main{
+    padding: 0.8em 1.2em;
+    height:100%;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-color: #e1e2da;
+    grid-column: 2 / span 1;
+    grid-row: 3 / span 1;
+    justify-self: center;
+    color: #736018;
+}
+nav ul {
+    text-shadow: none;
+    margin: 0;
+    list-style-type: none;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 0;
+    align-items:center;
+    height: 100%;
+}
+nav ul li {
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    display: block;
+    width:50%;
+    text-align: center;
+    padding: 0.2em 0.7em;
+    align-self: center;
+}
+nav .left{
+    background-color: #977e1c;
+    flex: 0 0 336px;
+}
+nav .right{
+    background-color: #d6b229;
+    flex: 1;
+    height: 100%;
+
+}
+nav ul li {
+    width: initial;
+    display: initial;
+    margin: 0 auto;
+    padding: 0;
+}
+a, input[type=submit]{
+    text-decoration: none;
+    font-size: 0.8125rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    line-height: 1em;
+}
+nav a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+a:visited{
+    color: rgb(30, 63, 117);
+}
+nav ul li a.current {
+    cursor: default;
+    color: #0c5990;
+    font-weight: bold;
+}
+nav ul li a.current:hover {
+    color: #0c5990;
+}
+nav ul li a:focus,
+nav ul li a:hover,
+nav ul li a:active{
+    color: #000;
+}
+a.button, input[type=submit]{
+    display: inline-block;
+    color: #ffffff;
+    background-color: rgb(20,47,131);
+    padding: 7px 20px;
+    margin-bottom: 1em;
+}
+
+main h1, h2.lightBlueBox{
+    display: block;
+    padding: 4px 0.5em;
+    margin: 3px -0.4em 0.3em 0;
+    text-align: left;
+    /*font-weight: bold;*/
+    background-color: #977e1c;
+    font-size: 1.5em;
+    color: white;
+}
+p{
+    margin-bottom: 25px;
+}
+ul{
+    list-style-type: square;
+    padding-left: 2em;
+    padding-top: 0.8em;
+    margin-bottom: 1.8em;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<div>
+<header>
+<img src="/images/header.jpg">
+</header>
+<nav>
+        <a href="/" th:text="#{home}"></a>
+        <a href="/tasks" th:text="#{allTasks}"></a>
+        <a href="/tasks/new" th:text="#{newTask}"></a>
+
+        <a href="#" class="lan" value="en" th:text="#{lang.eng}"></a>
+        <a href="#" class="lan" value="nl" th:text="#{lang.nl}"></a>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+</nav>
+</div>
+<footer th:fragment="scripts">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".lan").click(function(){
+                window.location.replace(window.location.pathname + '?lang=' + $(this).attr("value"));
+            });
+        });
+    </script>
+</footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:insert="header.html :: link">
+    <title th:text="#{createSubtask}"></title>
+</head>
+<body>
+<header th:replace="header :: header"></header>
+<nav th:replace="header :: nav"></nav>
+<main>
+<h1 th:text="#{newsubtaskfor} + ' ' + ${task.taskName}"></h1>
+<form action="#" th:action="@{/tasks/{id}/sub/create(id=${task.id})}" th:object="${subtask}" method="post">
+    <p><label for="taskName" th:text="#{taskName}"></label><input type="text" id="taskName" name="title" th:field="*{taskName}"/></p>
+    <p th:errors="*{taskName}"></p>
+
+    <p><label for="taskDescription" th:text="#{taskDescription}"></label><input type="text" id="taskDescription" name="description" th:field="*{taskDescription}"/></p>
+    <p th:errors="*{taskDescription}"></p>
+
+    <p><input type="submit" id="signUp" th:value="#{addSubTask}"></p>
+</form>
+<div th:include="header ::scripts"></div>
+</main>
+</body>
+</html>

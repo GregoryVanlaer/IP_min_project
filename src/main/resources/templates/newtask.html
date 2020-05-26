@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:insert="header.html :: link">
+    <title th:text="#{addTask}"></title>
+</head>
+<body>
+<header th:replace="header :: header"></header>
+<nav th:replace="header :: nav"></nav>
+<main>
+<h1 th:text="#{newTask}"></h1>
+<form th:action="@{/tasks/new}" th:object="${taskDTO}" method="post">
+    <p><label for="taskName" th:text="#{taskName}"></label><input type="text" id="taskName" th:field="*{taskName}"/></p>
+    <p th:errors="*{taskName}"></p>
+
+    <p><label for="taskDescription" th:text="#{taskDescription}"></label><input type="text" id="taskDescription"  th:field="*{taskDescription}"/></p>
+    <p th:errors="*{taskDescription}"></p>
+
+    <p><label for="taskDue" th:text="#{taskDue}"></label><input id="taskDue" type="datetime-local" th:field="*{taskDue}"/></p>
+    <p th:errors="*{taskDue}"></p>
+
+    <p><input type="submit" id="signUp" th:value="#{addTask}"></p>
+</form>
+<div th:include="header ::scripts"></div>
+</main>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+</head>
+<body>
+<main>
+<h1>Sign up</h1>
+<form th:method="post" th:action="@{/signup}" th:object="${user}">
+    <p th:if="${!#fields.globalErrors().isEmpty()}" th:text="${#fields.globalErrors()}"></p>
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" th:field="*{username}">
+        <p th:errors="*{username}"></p>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" th:field="*{password}">
+    </div>
+    <input type="submit" value="Sign up">
+</form>
+<div th:include="header ::scripts"></div>
+</main>
+</body>
+</html>
